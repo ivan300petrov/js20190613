@@ -1,17 +1,12 @@
 import { Component } from '../Component/Component.js';
-
-
 export class Portfolio extends Component  {
   constructor({ element, balance, items = {} }) {
-
     super();
     this._el = element;
     this._balance = balance;
     this._items = items;
     this._el.addEventListener('click', e => this.onHeadClick(e));
-  
     this._portfolioWorth = 0;
-
     this._render();
   }
 
