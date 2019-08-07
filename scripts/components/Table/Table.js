@@ -14,7 +14,6 @@ export class Table extends Component {
     const target = e.target.closest('tbody tr');
     if (!target) return;
     const id = target.dataset.id;
-    console.log(id);
     if (id) {
       let clickEvent = new CustomEvent('rowClick', {
         detail: id,
@@ -23,8 +22,10 @@ export class Table extends Component {
     }
   }
 _onHeadClick(e){
-  const targetHead = e.target.closest('thead tr');
-if (!targetHead) return;
+  const target = e.target.closest('tr th');
+if (!target) return;
+
+    console.log(target.dataset.type);
 if(target.dataset.type === 'string'){
 
 }
