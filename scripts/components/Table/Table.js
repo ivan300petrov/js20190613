@@ -24,13 +24,13 @@ export class Table extends Component {
       });
       this._el.dispatchEvent(clickEvent);
     }
+
+
+  }
 _onHeadClick(e){
   const targetHead = e.target.closest('thead tr');
 
 }
-
-  }
-
   _render(data) {
     this._el.innerHTML = `
       <table class="data-table highlight"> 
