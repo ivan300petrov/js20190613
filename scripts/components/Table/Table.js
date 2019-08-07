@@ -12,10 +12,7 @@ export class Table extends Component {
 
   _onRowClick(e) {
     const target = e.target.closest('tbody tr');
-
-    
-    if (!target || !targetHead) return;
-
+    if (!target) return;
     const id = target.dataset.id;
     console.log(id);
     if (id) {
@@ -24,23 +21,26 @@ export class Table extends Component {
       });
       this._el.dispatchEvent(clickEvent);
     }
-
-
   }
-  
 _onHeadClick(e){
   const targetHead = e.target.closest('thead tr');
+if (!targetHead) return;
+if(target.dataset.type === 'string'){
 
+}
+if(target.dataset.type === 'number'){
+  
+}
 }
   _render(data) {
     this._el.innerHTML = `
       <table class="data-table highlight"> 
         <thead>
           <tr>
-              <th>Name</th>
-              <th>Symbol</th>
-              <th>Rank</th>
-              <th>Price</th>
+              <th data-type = "string">Name</th>
+              <th data-type = "string">Symbol</th>
+              <th data-type = "number">Rank</th>
+              <th data-type = "number">Price</th>
           </tr>
         </thead>
         <tbody>
