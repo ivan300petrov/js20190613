@@ -1,5 +1,6 @@
 export class Portfolio extends Component  {
   constructor({ element, balance, items = {} }) {
+    super();
     this._el = element;
     this._balance = balance;
     this._items = items;
