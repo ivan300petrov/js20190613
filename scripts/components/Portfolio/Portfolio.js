@@ -1,4 +1,4 @@
-export class Portfolio {
+export class Portfolio extends Component  {
   constructor({ element, balance, items = {} }) {
     this._el = element;
     this._balance = balance;
@@ -46,10 +46,10 @@ export class Portfolio {
               <table class="highlight striped">
                 <thead>
                    <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th data-type = "string">Name</th>
+                    <th data-type = "number">Amount</th>
+                    <th data-type = "number">Price</th>
+                    <th data-type = "number">Total</th>
                    </tr>
                 </thead>
                 <tbody>

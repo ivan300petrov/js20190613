@@ -7,7 +7,7 @@ export class Table extends Component {
     this._render(data);
 
     this._el.addEventListener('click', e => this._onRowClick(e));
-    this._el.addEventListener('click', e => this._onHeadClick(e));
+    this._el.addEventListener('click', e => this.onHeadClick(e));
   }
 
   _onRowClick(e) {
@@ -21,27 +21,7 @@ export class Table extends Component {
       this._el.dispatchEvent(clickEvent);
     }
   }
-_onHeadClick(e){
-  const target = e.target.closest('tr th');
-  const table = e.target.closest('table');
-  const tableBody = table.tBodies[0];
-if (!target) return;
-let sortIndex = target.cellIndex;
-let rows = [...table.tBodies[0].rows] ;
-let sortType = target.dataset.type;
-    console.log(rows, target);
-    rows.sort(function(rowA, rowB){
-      let cellA = rowA.cells[sortIndex].textContent;
-      let cellB = rowB.cells[sortIndex].textContent;
-    return sortType === 'string'
-? cellA.localeCompare(cellB)
-: +cellA - +cellB;
 
-    }).forEach(function(item){
-tableBody.append(item)
-    })
-
-}
   _render(data) {
     this._el.innerHTML = `
       <table class="data-table highlight"> 
