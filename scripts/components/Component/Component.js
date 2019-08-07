@@ -10,7 +10,6 @@ if (!target) return;
 let sortIndex = target.cellIndex;
 let rows = [...table.tBodies[0].rows] ;
 let sortType = target.dataset.type;
-    console.log(rows, target);
     rows.sort(function(rowA, rowB){
       let cellA = rowA.cells[sortIndex].textContent;
       let cellB = rowB.cells[sortIndex].textContent;

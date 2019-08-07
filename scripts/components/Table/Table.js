@@ -22,8 +22,6 @@ export class Table extends Component {
     }
   }
 
-  
-
   _render(data) {
     this._el.innerHTML = `
       <table class="data-table highlight"> 
