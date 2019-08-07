@@ -9,7 +9,7 @@ export class Component {
   const tableBody = table.tBodies[0];
 
 let sortIndex = target.cellIndex;
-let rows = [...table.tBodies[0].rows] ;
+let rows = [...tableBody.rows] ;
 let sortType = target.dataset.type;
     rows.sort(function(rowA, rowB){
       let cellA = rowA.cells[sortIndex].textContent;
