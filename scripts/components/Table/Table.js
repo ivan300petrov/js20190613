@@ -7,20 +7,27 @@ export class Table extends Component {
     this._render(data);
 
     this._el.addEventListener('click', e => this._onRowClick(e));
+    this._el.addEventListener('click', e => this._onHeadClick(e));
   }
 
   _onRowClick(e) {
     const target = e.target.closest('tbody tr');
-    if (!target) return;
+
+    
+    if (!target || !targetHead) return;
 
     const id = target.dataset.id;
+    console.log(id);
     if (id) {
       let clickEvent = new CustomEvent('rowClick', {
         detail: id,
       });
       this._el.dispatchEvent(clickEvent);
     }
+_onHeadClick(e){
+  const targetHead = e.target.closest('thead tr');
 
+}
 
   }
 
