@@ -23,9 +23,12 @@ export class Table extends Component {
   }
 _onHeadClick(e){
   const target = e.target.closest('tr th');
+  const table = e.target.closest('table');
 if (!target) return;
+let sortIndex = target.cellIndex;
+let rows = [...table.tBodies[0].rows] ;
 
-    console.log(target.dataset.type);
+    console.log(rows, target);
 if(target.dataset.type === 'string'){
 
 }
