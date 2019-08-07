@@ -27,6 +27,7 @@ export class Table extends Component {
 
 
   }
+  
 _onHeadClick(e){
   const targetHead = e.target.closest('thead tr');
 
