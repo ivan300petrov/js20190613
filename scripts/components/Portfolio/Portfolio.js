@@ -9,7 +9,7 @@ export class Portfolio extends Component  {
     this._balance = balance;
     this._items = items;
     this._el.addEventListener('click', e => this.onHeadClick(e));
-  }
+  
     this._portfolioWorth = 0;
 
     this._render();
