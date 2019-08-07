@@ -24,17 +24,23 @@ export class Table extends Component {
 _onHeadClick(e){
   const target = e.target.closest('tr th');
   const table = e.target.closest('table');
+  const tableBody = table.tBodies[0];
 if (!target) return;
 let sortIndex = target.cellIndex;
 let rows = [...table.tBodies[0].rows] ;
-
+let sortType = target.dataset.type;
     console.log(rows, target);
-if(target.dataset.type === 'string'){
+    rows.sort(function(rowA, rowB){
+      let cellA = rowA.cells[sortIndex].textContent;
+      let cellB = rowB.cells[sortIndex].textContent;
+    return sortType === 'string'
+? cellA.localeCompare(cellB)
+: +cellA - +cellB;
 
-}
-if(target.dataset.type === 'number'){
-  
-}
+    }).forEach(function(item){
+tableBody.append(item)
+    })
+
 }
   _render(data) {
     this._el.innerHTML = `
