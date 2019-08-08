@@ -1,7 +1,11 @@
+
+import { DataService } from '../../services/DataService.js';
+import { Table } from '../Table/Table.js';
 export class Component {
   on(eventType, callback) {
     this._el.addEventListener(eventType, callback);
   }
+  /*
   onHeadClick(e){
   const target = e.target.closest('tr th');
   if (!target) return;
@@ -23,7 +27,7 @@ tableBody.append(item)
     })
 
 }
-/*
+*/
 onSort(columName, sortWay){
 DataService.getCurrencies(data => {
       this._data = data;

@@ -38,16 +38,39 @@ const HttpService = {
 };
 
 export const DataService = {
-  getCurrencies(callback) {
+  getCurrencies(callback, colName = '', sortWay = false) {
     HttpService.sendRequest(COINS_URL, data => {
       console.log(data);
+      if (colName) { 
+       // sortData(data, colName, sortWay);
+
+let sortType = typeof data[0].[colName];
+        data.sort(function(A, B){
+      let colA = data[sortIndex].[colName];
+      let colB = data[sortIndex].[colName];
+if (!sortWay){
+    return sortType === 'string'
+? colA.localeCompare(colB)
+: +colA - +colB;
+} else{
+  return sortType === 'string'
+? colA.localeCompare(colB)
+: +colB - +colA;
+}
+})
+
+
+       }
       data = data.slice(0, 10);
       console.log(data);
 
       DataService.getCurrenciesPrices(data, callback);
     });
   },
- 
+  
+ sortData(data, colName, sortWay){ },
+
+
   getCurrenciesPrices(data, callback) {
     let coinsIds = data.map(coin => coin.id);
 

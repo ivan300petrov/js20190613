@@ -5,22 +5,19 @@ export class Table extends Component {
     super();
     this._el = element;
     this._render(data);
-this._el.addEventListener('click', e => this._onRowClick(e));
-    //this._el.addEventListener('click', e => this._onClick(e));
+//this._el.addEventListener('click', e => this._onRowClick(e));
+    this._el.addEventListener('click', e => this._onClick(e));
    // this._el.addEventListener('click', e => this.onHeadClick(e));
    // this._el.addEventListener('click', e => this.onSort(e));
   }
-  /*
+  
 _onClick(e){
   if (e.target.closest('tbody tr')) this._onRowClick(e);
-  if (e.target.closest('tr th')) {
-let sortWay = true;
-
-    this.onSort(e.target.innerHTML, sortWay);
-  }
+ 
+ // if (e.target.closest('tr th')) {let sortWay = true;this.onSort(e.target.innerHTML, sortWay);}
 
 }
-*/
+
 
 
   _onRowClick(e) {
