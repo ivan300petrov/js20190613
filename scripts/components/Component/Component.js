@@ -28,7 +28,7 @@ tableBody.append(item)
 
 }
 */
-
+/*
 onSort(columName, sortWay){
 DataService.getCurrencies(data => {
       this._data = data;
