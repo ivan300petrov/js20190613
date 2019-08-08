@@ -40,7 +40,10 @@ const HttpService = {
 export const DataService = {
   getCurrencies(callback) {
     HttpService.sendRequest(COINS_URL, data => {
+      console.log(data);
       data = data.slice(0, 10);
+      console.log(data);
+
       DataService.getCurrenciesPrices(data, callback);
     });
   },
