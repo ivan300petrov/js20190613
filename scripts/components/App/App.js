@@ -8,11 +8,28 @@ export class App {
     this._el = element;
     this._userBalance = 10000;
     this._render();
+    let inputFiltr = document.querySelector('input')
+    inputFiltr.addEventListener('keyup', e => {
+      if (!e.target.closest('input')) return;
+let filtr = e.target.value;
+DataService.getCurrencies(filtr).then(data => {
+      this._data = data;
+      this._initTable();
 
-    DataService.getCurrencies(data => {
+    });
+      //const { key } = e;
+      console.log('addEventListener ', filtr);
+    });
+    DataService.getCurrencies().then(data => {
+      
       this._data = data;
       this._initTable();
     });
+
+    // DataService.getCurrencies(data => {
+    //   this._data = data;
+    //   this._initTable();
+    // });
 
     this._initPortfolio();
     this._initTradeWidget();

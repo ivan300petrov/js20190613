@@ -1,11 +1,9 @@
-import { Component } from '../Component/Component.js';
-export class Portfolio extends Component  {
+export class Portfolio {
   constructor({ element, balance, items = {} }) {
-    super();
     this._el = element;
     this._balance = balance;
     this._items = items;
-    this._el.addEventListener('click', e => this.onHeadClick(e));
+
     this._portfolioWorth = 0;
     this._render();
   }
@@ -48,10 +46,10 @@ export class Portfolio extends Component  {
               <table class="highlight striped">
                 <thead>
                    <tr>
-                    <th data-type = "string">Name</th>
-                    <th data-type = "number">Amount</th>
-                    <th data-type = "number">Price</th>
-                    <th data-type = "number">Total</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Total</th>
                    </tr>
                 </thead>
                 <tbody>
