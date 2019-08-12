@@ -16,15 +16,21 @@ DataService.getCurrencies(filtr).then(data => {
       this._data = data;
       this._initTable();
 
-    });
-      //const { key } = e;
-      console.log('addEventListener ', filtr);
-    });
-    DataService.getCurrencies().then(data => {
+
+    })
+    })
+    
       
+    DataService.getCurrencies().then(data => {
+
       this._data = data;
       this._initTable();
-    });
+    })
+
+    // DataService.getCurrencies(data => {
+    //   this._data = data;
+    //   this._initTable();
+    // });
 
     // DataService.getCurrencies(data => {
     //   this._data = data;

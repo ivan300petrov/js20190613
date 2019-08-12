@@ -56,12 +56,14 @@ export const DataService = {
     return promise;
   },
 
+
   getCurrencies(filtr) {
    this.filtr = filtr;
     // HttpService.sendRequest(COINS_URL, data => {
     //   data = data.slice(0, 10);
     //   DataService.getCurrenciesPrices(data, callback);
     // });
+
 
     let promise = HttpService.sendRequest(COINS_URL);
     return promise.then((data) => {
@@ -77,6 +79,22 @@ data = data.filter(item => ~item.name.indexOf(filter) && item.is_active);
  
   getCurrenciesPrices(data) {
     let coinsUrls = data.map(coin => getSingleCoinUrl(coin.id));
+
+
+
+    let promise = HttpService.sendRequest(COINS_URL);
+
+    return promise.then(data => {
+      data = data.slice(0, 10);
+      return DataService.getCurrenciesPrices(data);
+    }).catch(err => {
+      console.error(err);
+    });
+  },
+ 
+  getCurrenciesPrices(data) {
+    let coinsUrls = data.map(coin => getSingleCoinUrl(coin.id));
+
 
     return HttpService.sendMultipleRequests(coinsUrls).then(coins => {
       const dataWithPrice = data.map((item, index) => {
